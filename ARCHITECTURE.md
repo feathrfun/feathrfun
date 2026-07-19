@@ -78,12 +78,12 @@ Seven routes, all `runtime=nodejs` and `force-dynamic`.
 | `GET /api/feed` | Ranked feed, four modes, 90s cache. **Applies the scam filter.** | `SHIPPED` |
 | `GET /api/token-live` | Single-token poll for the visible card, 3s cache | `SHIPPED` |
 | `GET /api/token-resolve` | Address to full card, for search | `SHIPPED` |
-| `GET /api/tokens/search` | Ticker or address search | `PARTIAL` |
+| `GET /api/tokens/search` | Ticker or address search | `SHIPPED` |
 | `POST /api/stats` | In-process counters, reset on restart | `PARTIAL` |
 | `GET /api/why` | Vertex Gemini narrative, 5m cache | `SHIPPED` |
 | `GET /api/pnl-card` | 1200×630 OG image, Imagen hero panel | `SHIPPED` |
 
-`PARTIAL` on search: the route is being reworked for this chain and should not be relied on yet.
+Search resolves EVM addresses directly. Ticker queries match against the feed corpus (trending, fresh, near graduation, graduated) refreshed on a 60s cache, because the upstream provider exposes no ticker-search endpoint. Tokens outside the feed remain reachable by address.
 
 `PARTIAL` on stats: counters are per-process and non-durable, so any number derived from them is a lower bound at best.
 
@@ -186,7 +186,7 @@ Components tagged `PARTIAL` are under active work and should not be relied on in
 
 Two properties are worth stating plainly for anyone evaluating the product today:
 
-- **Trading is simulated by default.** Real execution is opt-in and unverified.
+- **In-app trading is simulated by default.** Real execution is opt-in and unverified. This is about the deck's own swap path; $FEATHR itself trades normally on any DEX.
 - **Usage figures are not durable.** Server-side counters are per-process, so any number derived from them is a lower bound and should not be quoted as a metric.
 
 The engineering checklist that gates launch is tracked privately and is not part of this repository.

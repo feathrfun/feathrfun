@@ -94,9 +94,17 @@ The reasoning is narrow and selfish. Paywalling the mechanism that keeps users s
 
 ## VI. The Token
 
-`PLANNED` None of this exists yet. `$FEATHR` has not launched.
+`SHIPPED` `$FEATHR` is live on Robinhood Chain.
 
-Supply is one billion, fixed, eighteen decimals. All of it seeds a one-sided Uniswap V3 position at launch on pons.family. The LP NFT locks permanently in the platform locker.
+```
+0xf5743e3ba5d883e2d311055800f12dfcd79e3da9
+```
+
+Confirmed by direct contract read: name `Feathr`, symbol `FEATHR`, eighteen decimals, one billion fixed supply. Verify that address yourself before trading. Treat any address arriving by direct message as fraudulent.
+
+What follows describes launch parameters as designed. Confirm them against live launchpad state with `tools/launch_verify.ts` rather than trusting this document.
+
+Supply is one billion, fixed, eighteen decimals. All of it seeds a one-sided Uniswap V3 position at launch on ponsfamily.com. The LP NFT locks permanently in the platform locker.
 
 The locker exposes no withdrawal function. The claim is architectural rather than moral. No multisig votes on it, no timelock counts toward it, no founder promises restraint. Anyone can confirm that by reading the deployed bytecode.
 
@@ -114,7 +122,7 @@ Every rug shares one shape. An unlock date arrives, or a multisig moves, or a mi
 
 ## VII. Tiers
 
-`SHIPPED` Tier resolution reads a live on-chain ERC-20 balance. No staking, no lockup, no claim flow. It is inert until a contract address is configured.
+`SHIPPED` Tier resolution reads a live on-chain ERC-20 balance against 0xf5743e3ba5d883e2d311055800f12dfcd79e3da9. No staking, no lockup, no claim flow.
 
 | Tier | Holding | Unlocks |
 |---|---|---|
@@ -125,7 +133,7 @@ Every rug shares one shape. An unlock date arrives, or a multisig moves, or a mi
 
 The token gates convenience and status. It does not gate safety. The scam filter, the risk data, and the full deck are free at every tier.
 
-`PLANNED` The interface fee, the creator-fee treasury, and the buyback are designed but not implemented. No fee is charged today because no real trade settles today.
+`PLANNED` The interface fee, the creator-fee treasury, and the buyback are designed but not implemented. No fee is charged today because the deck's own execution path is still simulated.
 
 ---
 
@@ -163,7 +171,7 @@ Nobody has shipped swipe-to-trade on this chain.
 
 What runs today: the deck, four feed modes, live card data from dual sources, the free scam filter, the client-side taste engine, wallet connect, tier resolution, the Telegram feed bot and mini app.
 
-What does not run yet: verified on-chain execution, the token, fees, treasury, and every automation layer above them.
+What does not run yet: verified in-app execution, fees, treasury, and every automation layer above them.
 
 The gap between those two lists is the work. Publishing the second list is the point of writing this down.
 
@@ -180,7 +188,8 @@ Right = you own it.
 <div align="center">
 <sub>
 
-$FEATHR has not launched. Nothing in this document is an offer, and nothing here is financial advice.
+$FEATHR is a utility token for the Feathr application. It is not an investment product, security, or claim
+on revenue. Nothing in this document is an offer, and nothing here is financial advice.
 Trading low-cap tokens is extremely high risk and most go to zero. The scam filter reduces exposure to obvious
 concentration risk but cannot catch everything. Feathr is an independent application, not affiliated with, endorsed by,
 or sponsored by Robinhood Markets, Inc. "Robinhood Chain" identifies the underlying public blockchain network.

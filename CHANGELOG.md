@@ -14,6 +14,16 @@ A stale status tag is a correctness bug, not a documentation nit.
 - Post-launch addendum comparing the real launch curve against the modelled one
 - Independent audit findings, published verbatim if and when one is performed
 
+## [0.3.0] - 2026-07-20
+
+### Changed
+- Token search re-tagged `PARTIAL` → `SHIPPED`. It now resolves EVM addresses directly and matches tickers against the feed corpus, cached 60s. The previous implementation validated base58 addresses and queried the wrong chain, and its ticker path called an upstream endpoint that returns 404 on every chain while the caller swallowed the error and returned an empty array. Every ticker query since launch had silently returned nothing.
+- Corrected the launchpad domain throughout. `pons.family` does not resolve; the correct host is `ponsfamily.com`, and token pages live at `/launchpad/{address}` rather than `/token/{address}`.
+- Separated in-app execution from token trading wherever the two were conflated. The swipe deck's own swap path is still simulated by default; `$FEATHR` itself trades normally on any DEX.
+
+### Fixed
+- Documented limitation on ticker search: it covers tokens present in the feed, not every token that has ever existed on the chain. Address lookup is the escape hatch and does not depend on that corpus.
+
 ## [0.2.0] - 2026-07-19
 
 ### Added
