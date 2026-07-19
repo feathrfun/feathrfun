@@ -7,9 +7,9 @@
 Design, tokenomics, and threat model for [Feathr](https://feathr.fun) — a swipe-to-trade layer for Robinhood Chain.
 
 [![Chain](https://img.shields.io/badge/Robinhood%20Chain-4663-c8ff3d?style=flat-square)](https://feathr.fun)
-[![Status](https://img.shields.io/badge/status-pre--launch-ff6f5e?style=flat-square)](#what-actually-runs-today)
-[![Trading](https://img.shields.io/badge/trading-paper%20mode%20default-ff6f5e?style=flat-square)](./ARCHITECTURE.md#5-trading-path--partial)
-[![Token](https://img.shields.io/badge/%24FEATHR-not%20launched-0b0f0e?style=flat-square)](./THESIS.md#vi-the-token)
+[![Token](https://img.shields.io/badge/%24FEATHR-live-c8ff3d?style=flat-square)](#feathr)
+[![Trading](https://img.shields.io/badge/in--app%20trading-paper%20mode%20default-ff6f5e?style=flat-square)](./ARCHITECTURE.md#5-trading-path--partial)
+[![Supply](https://img.shields.io/badge/supply-1B%20fixed-0b0f0e?style=flat-square)](#feathr)
 
 [feathr.fun](https://feathr.fun) · [@feathrfun](https://x.com/feathrfun) · [Telegram](https://t.me/feathrfun)
 
@@ -60,10 +60,11 @@ Being specific about this matters more than anything else in the repository.
 - AI narrative summaries and generated P/L cards
 - A Telegram feed bot and a browse-only mini app
 
+- **`$FEATHR` is live on Robinhood Chain.** Contract verified on-chain: name `Feathr`, symbol `FEATHR`, 18 decimals, 1,000,000,000 fixed supply.
+
 **Not live:**
 
-- **Verified on-chain execution.** The deck ships in **paper mode by default**. A right-swipe opens a tracked position against live market data and does not touch the chain. The real swap path is implemented but has not been verified end to end against mainnet, so it sits behind an explicit opt-in.
-- **`$FEATHR`.** The token has not launched. Every tokenomics number in these documents is a planned parameter, not an observed fact.
+- **Verified in-app execution.** The deck ships in **paper mode by default**. A right-swipe opens a tracked position against live market data and does not touch the chain. The real swap path is implemented but has not been verified end to end against mainnet, so it sits behind an explicit opt-in. Trading `$FEATHR` itself works normally on any DEX; this limitation is about the swipe deck's own execution path.
 - Interface fees, treasury, buyback, points, social features, and all automation.
 
 ---
@@ -96,15 +97,30 @@ Platforms update their own parameters. **Run this before quoting any tokenomics 
 
 ---
 
-## Token, as designed
+## $FEATHR
 
-> `PLANNED` — `$FEATHR` has not launched. These are intended parameters, and none of them are observable yet.
+**Contract address**
+
+```
+0xf5743e3ba5d883e2d311055800f12dfcd79e3da9
+```
+
+> Verify before you trade. This address is published on [feathr.fun](https://feathr.fun), in this repository, and in pinned posts on [@feathrfun](https://x.com/feathrfun) and [t.me/feathrfun](https://t.me/feathrfun). If an address reaches you anywhere else, especially by DM, treat it as fraudulent.
+
+`SHIPPED` — confirmed by direct contract read on Robinhood Chain:
+
+| Property | Value | Source |
+|---|---|---|
+| Name / Symbol | `Feathr` / `FEATHR` | On-chain |
+| Decimals | 18 | On-chain |
+| Total supply | 1,000,000,000 fixed | On-chain |
+| Chain | Robinhood Chain, id 4663 | On-chain |
+
+`PLANNED` — launch parameters as designed. Confirm these against live launchpad state with `tools/launch_verify.ts` rather than trusting this table:
 
 | Property | Value |
 |---|---|
-| Supply | 1,000,000,000 fixed · 18 decimals |
-| Chain | Robinhood Chain, id 4663 |
-| Launch | pons.family fair launch |
+| Launch | ponsfamily.com fair launch |
 | LP | 100% of supply into a one-sided Uniswap V3 position, NFT locked permanently |
 | Pre-mine | 0%, creator bundle ≤5% bought at market in the launch tx |
 | Emissions | None |
@@ -131,16 +147,17 @@ Those repositories open once the launch gates in [THREAT_MODEL.md §5](./THREAT_
 
 ## ⚠️ Scam warning
 
-> **There is no presale. No allocation. No whitelist.**
-> Anyone offering one is a scammer, without exception.
+> **There is one contract address, and it is published above.**
+> Verify it character by character before you trade.
 
-`$FEATHR` has not launched and no contract address exists. Any address circulating as `$FEATHR` today is fraudulent.
+**There is no presale, no allocation, and no whitelist.** Anyone offering one is a scammer, without exception.
 
-When it does launch, the address will appear on [feathr.fun](https://feathr.fun), in this repository, and in pinned posts on [@feathrfun](https://x.com/feathrfun) and [t.me/feathrfun](https://t.me/feathrfun) at the same time. Nothing legitimate will ever reach you first by DM.
+Official channels are [feathr.fun](https://feathr.fun), this repository, [@feathrfun](https://x.com/feathrfun), and [t.me/feathrfun](https://t.me/feathrfun). Nothing legitimate will reach you first by DM. Expect lookalike addresses and impersonation accounts; they follow every launch.
 
 ---
 
-> $FEATHR has not launched. Nothing in this repository is an offer to sell, and nothing here is financial advice.
+> $FEATHR is a utility token for the Feathr application. It is not an investment product, security, or claim on revenue.
+Nothing in this repository is an offer to sell, and nothing here is financial advice.
 Trading low-cap tokens is extremely high risk and most go to zero. The scam filter reduces exposure to obvious
 concentration risk but cannot catch everything. Feathr is an independent application and is not affiliated with,
 endorsed by, or sponsored by Robinhood Markets, Inc. "Robinhood Chain" is referenced solely to identify the

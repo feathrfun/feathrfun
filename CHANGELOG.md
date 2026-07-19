@@ -14,6 +14,21 @@ A stale status tag is a correctness bug, not a documentation nit.
 - Post-launch addendum comparing the real launch curve against the modelled one
 - Independent audit findings, published verbatim if and when one is performed
 
+## [0.2.0] - 2026-07-19
+
+### Added
+- `$FEATHR` contract address, published in the README, the thesis, and the organization profile: `0xf5743e3ba5d883e2d311055800f12dfcd79e3da9`
+- On-chain verification of the token identity before publication: name `Feathr`, symbol `FEATHR`, 18 decimals, 1,000,000,000 fixed supply, all read directly from the contract on Robinhood Chain
+
+### Changed
+- Token status moved from `PLANNED` to `SHIPPED`. Supply, decimals, name, and symbol are now confirmed facts rather than intended parameters.
+- Tier resolution re-tagged `SHIPPED` and bound to the live contract address. It is no longer inert.
+- Separated two things that were previously conflated: the deck's own execution path is still simulated by default and remains `PARTIAL`, while `$FEATHR` itself trades normally on any DEX. Every place that said "trading is simulated" now says which trading it means.
+- Launch parameters (LP lock, pre-mine, anti-snipe window, graduation threshold) remain `PLANNED` in the sense that this document does not assert them as verified. Readers are directed to `tools/launch_verify.ts` to confirm them against live launchpad state.
+
+### Security
+- Rewrote the scam warning around a published address rather than the absence of one. The failure mode has changed: before launch the risk was any address at all, now it is lookalike addresses and impersonation accounts.
+
 ## [0.1.0] - 2026-07-19
 
 Consolidated from five separate draft repositories into one documentation repository.
