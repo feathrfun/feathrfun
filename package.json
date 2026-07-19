@@ -1,0 +1,36 @@
+{
+  "name": "feathrfun",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Design, tokenomics, and threat model for Feathr — a swipe-to-trade layer for Robinhood Chain. Documentation and verification tools only.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "calc:tokenomics": "tsx tools/tokenomics_calc.ts",
+    "verify:launch": "tsx tools/launch_verify.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "viem": "^2.38.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "keywords": [
+    "feathr",
+    "robinhood-chain",
+    "documentation",
+    "tokenomics",
+    "threat-model"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feathrfun/feathrfun.git"
+  },
+  "homepage": "https://feathr.fun"
+}
